@@ -1,0 +1,9 @@
+pt-BR:
+  activerecord:
+    models:
+      manager: 'Investidor'
+    attributes:
+      manager:
+        email: 'E-mail'
+        password: 'Senha'
+        
