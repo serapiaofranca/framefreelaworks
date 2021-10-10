@@ -1,0 +1,21 @@
+<div>
+    <h1>Projeto: <%= @project.title %> </h2>
+    <br>
+     <h2><%= @project.description %></h2>
+    <dl>
+        <dt>Tecnologias Requeridas:</dt>
+        <dd><%= @project.requirements %></dd>
+        <dt>Remuneração por hora:</dt>
+        <dd><%= number_to_currency(@project.hourly_rate) %></dd>  
+        <dt>Requer atuação presencial:</dt>        
+        <% if @project.require_presential_meetings? %>
+            <dd>Sim</dd>
+        <% else %>
+            <dd>Não</dd>
+        <% end %>        
+        <strong>
+            <dt>Validade da Proposta:</dt>
+            <dd><%= I18n.l(@project.expiration_date) %></dd>
+        </strong>
+    </dl>
+</div>

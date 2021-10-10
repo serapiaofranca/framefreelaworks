@@ -1,0 +1,13 @@
+pt-BR:
+  activerecord:
+    models:
+      project: 'Projeto de Software'
+    attributes:
+      project:
+        title: 'Título do Projeto'
+        description: 'Descrição'
+        requirements: 'Tecnologias Requeridas'
+        hourly_rate: 'Remuneração por hora'
+        expiration_date: 'Validade da Proposta'        
+        require_presential_meetings: 'Requer atuação presencial'
+        

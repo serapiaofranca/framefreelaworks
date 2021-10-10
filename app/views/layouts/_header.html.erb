@@ -1,8 +1,7 @@
  <nav>
     <% if manager_signed_in? %>
         <ul>
-            <li><%= link_to 'Meus Projetos', root_path %></li>
-            <li><%= link_to 'Cadastrar Projeto', root_path %></li>
+            <li><%= link_to 'Meus Projetos', root_path %></li>            
             <li><%= current_manager.email %></li>
             <li><%= link_to 'Logout', destroy_manager_session_path, method: :delete %></li>
         </ul>        
