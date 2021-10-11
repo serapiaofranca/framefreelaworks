@@ -4,9 +4,15 @@
             <li><%= link_to 'Meus Projetos', root_path %></li>            
             <li><%= current_manager.email %></li>
             <li><%= link_to 'Logout', destroy_manager_session_path, method: :delete %></li>
-        </ul>        
-    <% else %>
+        </ul> 
+    <% elsif developer_signed_in? %>
+        <ul>
+            <li><%= link_to 'Completar Perfil', root_path %></li>                       
+            <li><%= current_developer.email %></li>
+            <li><%= link_to 'Logout', destroy_developer_session_path, method: :delete %></li>
+        </ul>               
+    <% else current_page?(root_path) %>
         <p><%= link_to 'Entrar como Gestor', new_manager_session_path %></p>
-        <p><%= link_to 'Entrar como Desenvolvedor', root_path %></p>
+        <p><%= link_to 'Entrar como Desenvolvedor', new_developer_session_path %></p>
     <% end %>
 </nav>

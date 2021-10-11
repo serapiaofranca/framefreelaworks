@@ -1,9 +1,9 @@
 pt-BR:
   activerecord:
     models:
-      manager: 'Gestor'
+      developer: 'Desenvolvedor'
     attributes:
-      manager:
+      developer:
         email: 'E-mail'
         password: 'Senha'
         

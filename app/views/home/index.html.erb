@@ -1,8 +1,13 @@
 <% if manager_signed_in? %>
     <li><%= link_to 'Cadastrar Projeto', new_project_path %></li>
+<% elsif developer_signed_in? %>
+    <li><%= link_to 'Preencher Perfil', root_path %></li>
 <% end %>
 
 <h3>Boas vindas ao <strong>FrameFreelaWorks</strong></h3>
 <br> 
-<div>Encontre Devs para realizar seu Projeto</div>
+<div>
+    <p>Gestores, encontrem Devs para realizar seu Projeto </p>
+    <p>Devs, envie proposta para participar de Times e fazer parte da realização de projetos </p>
+</div>
   
