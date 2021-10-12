@@ -3,13 +3,14 @@
         <ul>
             <li><%= link_to 'Meus Projetos', my_projects_projects_path %></li>            
             <span><%= current_manager.email %></span>
-            <li><%= link_to 'Logout', destroy_manager_session_path, method: :delete %></li>
+            <li><%= link_to 'Sair', destroy_manager_session_path, method: :delete %></li>
+            <li><%= link_to 'Cadastrar Projeto', new_project_path %></li>            
         </ul> 
     <% elsif developer_signed_in? %>
         <ul>
-            <li><%= link_to 'Completar Perfil', root_path %></li>                       
+            <li><%= link_to 'Completar Perfil', new_profile_path %></li>                       
             <li><%= current_developer.email %></li>
-            <li><%= link_to 'Logout', destroy_developer_session_path, method: :delete %></li>
+            <li><%= link_to 'Sair', destroy_developer_session_path, method: :delete %></li>
         </ul>               
     <% else current_page?(root_path) %>
         <p><%= link_to 'Entrar como Gestor', new_manager_session_path %></p>

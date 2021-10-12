@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_10_231700) do
+ActiveRecord::Schema.define(version: 2021_10_12_202402) do
 
   create_table "developers", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -34,6 +34,18 @@ ActiveRecord::Schema.define(version: 2021_10_10_231700) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_managers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_managers_on_reset_password_token", unique: true
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.string "full_name"
+    t.string "social_name"
+    t.date "birth_date"
+    t.string "education"
+    t.string "skills"
+    t.string "employment_history"
+    t.string "avatar"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "projects", force: :cascade do |t|
