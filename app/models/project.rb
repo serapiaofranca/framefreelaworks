@@ -1,6 +1,6 @@
-class Project < ApplicationRecord
-    belongs_to :manager    
-    
+class Project < ApplicationRecord 
+    belongs_to :manager  
+
     validates :title, :description, :requirements, :hourly_rate, 
-        :expiration_date, presence: true
+        :expiration_date, presence: true    
 end

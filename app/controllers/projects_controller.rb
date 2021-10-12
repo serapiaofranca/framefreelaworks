@@ -18,6 +18,10 @@ class ProjectsController < ApplicationController
             render :new
         end
     end
+
+    def my_projects
+        @projects = current_manager.projects
+    end
     
     private
 

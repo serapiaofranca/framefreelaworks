@@ -1,24 +1,22 @@
-# README
+    # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Tasks list ~> trello: https://trello.com/b/8LPCuWZf/framefreelaworks
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version: 2.7.2
 
-* System dependencies
+* Rails 6.1.4
 
-* Configuration
+* O.S : 20.04.2-Ubuntu x86_64 GNU/Linux
 
-* Database creation
+* Configuration: 'bundle install' in root project
 
-* Database initialization
+* Database creation / inicialization : 'rails db:migrate' in root project
 
-* How to run the test suite
+* How to run the test suite: 'rspec'
 
-* Services (job queues, cache servers, search engines, etc.)
+* Start app ~> in root_project_folder run `rails s` 
+    access to web browser: `http://localhost:3000`
 
-* Deployment instructions
-
-* ...
+* Deployment instructions : *** future implementation

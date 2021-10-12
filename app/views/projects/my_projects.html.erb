@@ -1,0 +1,8 @@
+<section>
+  <h3>Meus Imóveis</h3>
+  <% if @projects.empty? %>
+    <div><span>Nenhum Projeto Cadastrado</span></div>
+  <% else %>
+    <%= render 'layouts/project_card' %>   
+  <% end %>  
+</section>
