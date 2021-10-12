@@ -1,0 +1,15 @@
+<% @profiles.each do |p| %>
+    <div class="column">
+        <div class="card">
+            <div>
+            <%=  p.avatar %> 
+            </div>
+            <div class="card">
+                <p> Nome Social: <%=  link_to( p.social_name , profile_path(p.id) )%></p>
+                <p> Conhecimentos técnicos: <%=  p.skills %>    
+                <p> Experiência Profissional: <%=  p.employment_history %>    
+                <p> Data de nascimento: <%=  I18n.l(p.expiration_date) %>
+            </div>
+        </div>
+    </div>        
+<% end %>

@@ -1,0 +1,14 @@
+pt-BR:
+  activerecord:
+    models:
+      profile: 'Perfil Profissinal'
+    attributes:
+      profile:  
+        full_name: 'Nome completo'
+        social_name: 'Nome social'
+        birth_date: 'Data de nascimento'
+        education: 'Escolaridade'
+        skills: 'Conhecimentos técnicos'        
+        employment_history: 'Experiência Profissional'
+        avatar: 'Imagem de perfil'
+        

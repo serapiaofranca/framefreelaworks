@@ -7,5 +7,5 @@ Rails.application.routes.draw do
     get 'my_projects', on: :collection
   end
   
-  resources :profile, only: %i[new]
+  resources :profiles, only: %i[new create show]
 end

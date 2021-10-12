@@ -1,0 +1,15 @@
+<div class='card'>
+    <h1><%= @profile.social_name %> </h1>
+    <br>
+    <h3><%= @profile.avatar %> </h3>
+    <br>
+     <h2>Nome completo:<%= @profile.full_name %></h2>
+    <div class='card'>   
+        <p>Data de nascimento: <%= I18n.l(@profile.birth_date) %>
+        <p>Escolaridade: <%= @profile.full_name %></strong></p>  
+        <p>Conhecimentos técnicos:<strong> <%= @profile.skills %></strong></p>  
+        <p>Experiência Profissional: <%= @profile.employment_history %></strong></p>  
+    </div>    
+    <br>
+    <%= link_to 'Voltar', root_path %>
+</div>
