@@ -1,0 +1,12 @@
+
+<section>
+  <h2>Projetos em aberto</h2>
+
+  <% if @projects.empty? %>
+    <div><span>Nenhum projeto disponível</span></div>
+  <% else %>
+  	<%= link_to 'Buscar projetos', root_path %>
+  	<br>	
+	  <%= render '/layouts/project_card' %>		
+  <% end %>
+</section>

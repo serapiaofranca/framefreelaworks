@@ -4,4 +4,12 @@
     <p>Gestores, encontrem Devs para realizar seu Projeto </p>
     <p>Devs, envie proposta para participar de Times e fazer parte da realização de projetos </p>
 </div>
+
+<section>
+    <div>
+        <% if current_developer && current_developer.profile %>
+            <%= render 'developer_index' %>        
+        <% end %>
+    </div>
+</section>
   

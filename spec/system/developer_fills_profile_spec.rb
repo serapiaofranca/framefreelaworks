@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-context 'developer fill profile' do
+context 'developer fills profile' do
     it 'using menu' do
         Developer.create!(email: 'teste@developer.com', password: '123456')
 
@@ -50,13 +50,39 @@ context 'developer fill profile' do
         fill_in 'Nome completo', with: 'Teste developer'
         fill_in 'Nome social', with: 'Developer'
         fill_in 'Data de nascimento', with: '10/05/1980'
-        fill_in 'Escolaridade', with: 'Superior em Ciências Contábeis'
+        fill_in 'Escolaridade', with: '10/05/1980'
         fill_in 'Conhecimentos técnicos', with: 'Html Css Javascript'
         fill_in 'Experiência Profissional', with: 'menos de 2 anos'
         click_on 'Enviar'
 
         expect(page).to have_content('Perfil completado com sucesso')        
         expect(page).to have_link('Voltar')        
+        expect(page).to have_content('Teste developer')        
+        expect(page).to have_content('Developer')        
+        expect(page).to have_content('10/05/1980')        
+        expect(page).to have_content('Html Css Javascript')        
+        expect(page).to have_content('menos de 2 anos')        
     end
 
+    it 'error on save' do
+        john = Developer.create!(email: 'john@developer.com', password: '123456')
+
+        visit root_path
+        click_on 'Entrar como Desenvolvedor'
+        fill_in 'E-mail', with: john.email
+        fill_in 'Senha', with: john.password
+        click_on 'Entrar'
+        click_on 'Completar Perfil'        
+        click_on 'Enviar'
+
+        expect(page).not_to have_content('Perfil completado com sucesso')        
+        expect(page).to have_button('Enviar')        
+        expect(page).to have_link('Sair')        
+        expect(page).to have_content('Nome completo não pode ficar em branco')        
+        expect(page).to have_content('Nome social não pode ficar em branco')        
+        expect(page).to have_content('Data de nascimento não pode ficar em branco')        
+        expect(page).to have_content('Escolaridade não pode ficar em branco')        
+        expect(page).to have_content('Conhecimentos técnicos não pode ficar em branco')        
+        expect(page).to have_content('Experiência Profissional não pode ficar em branco')        
+    end
 end

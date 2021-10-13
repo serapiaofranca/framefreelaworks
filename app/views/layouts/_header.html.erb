@@ -8,7 +8,11 @@
         </ul> 
     <% elsif developer_signed_in? %>
         <ul>
-            <li><%= link_to 'Completar Perfil', new_profile_path %></li>                       
+            <% if !current_developer.profile %>
+                <li><%= link_to 'Completar Perfil', new_profile_path %></li>
+            <% elsif%> 
+                <li><%= link_to 'Ver perfil', profile_path(current_developer) %></li>
+            <% end %>                      
             <li><%= current_developer.email %></li>
             <li><%= link_to 'Sair', destroy_developer_session_path, method: :delete %></li>
         </ul>               
