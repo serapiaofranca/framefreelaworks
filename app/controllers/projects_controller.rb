@@ -1,9 +1,12 @@
 class ProjectsController < ApplicationController
-    before_action :authenticate_manager!, only: [:new, :create, :show]
-    #before_action :authenticate_developer!, only: [:show, :search_projects]
+    before_action :authenticate_manager!, only: [:new, :create]    
 
-    def show        
-        @project = Project.find(params[:id])    
+    def show 
+        if current_manager || current_developer       
+            @project = Project.find(params[:id])    
+        else
+            redirect_to root_path
+        end
     end
 
     def new

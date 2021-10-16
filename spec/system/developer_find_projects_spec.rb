@@ -111,6 +111,7 @@ describe 'Developer find project' do
 		fill_in 'Senha', with: john.password
 		click_on 'Entrar'		
 
+		expect(page).to have_content('Nenhum projeto disponível')
 		expect(page).not_to have_content('Pesquisar projetos')
 		expect(page).not_to have_link('Buscar')
 		expect(page).to have_link('Ver perfil')
