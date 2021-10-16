@@ -2,11 +2,16 @@
 <section>
   <h2>Projetos em aberto</h2>
 
-  <% if @projects.empty? %>
+  <% if @projects && @projects.empty? %>
     <div><span>Nenhum projeto disponível</span></div>
   <% else %>
-  	<%= link_to 'Buscar projetos', root_path %>
-  	<br>	
+    <div>      
+      <%= form_with url: "/projects/search_projects", method: :get do |form| %>
+        <%= form.label :search, "Pesquisar projetos" %>
+        <%= form.text_field :search %>
+        <%= form.submit "Buscar", class: "botao" %>
+      <% end %>         	
+  	</div>    
 	  <%= render '/layouts/project_card' %>		
   <% end %>
 </section>

@@ -1,0 +1,11 @@
+<section>
+  <h3>Projetos encontrados</h3>
+  <br>
+  <%= link_to 'Voltar', root_path %>
+  <br>
+  <% if @projects.empty? %>
+    <div><span>Nenhum Projeto encontrado</span></div>    
+  <% else %>
+    <%= render 'layouts/project_card' %>   
+  <% end %>  
+</section>

@@ -3,7 +3,7 @@
         <div class="card">
             <p> Título: <%=  link_to( p.title , project_path(p.id) )%></p>
             <p> Descrição do projeto: <%=  p.description %>    
-            <p> Tecnologias requerdas: <%=  p.requirements %>    
+            <p> Tecnologias requeridas: <%=  p.requirements %>    
             <p> Remuneração por hora: <%=  number_to_currency(p.hourly_rate) %>  
             <p> Validade da Proposta: <%=  I18n.l(p.expiration_date) %>
         </div>

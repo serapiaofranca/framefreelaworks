@@ -2,7 +2,7 @@
     <div class="column">
         <div class="card">
             <div>
-                <img src=<%= "#{p.avatar}"%> alt="Italian Trulli">             
+                <%= image_tag(p.avatar style: "width: 50px; height: 50px;") %>
             </div>
             <div class="card">
                 <p> Nome Social: <%=  link_to( p.social_name , profile_path(p.id) )%></p>

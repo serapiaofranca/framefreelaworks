@@ -1,7 +1,8 @@
 class ProjectsController < ApplicationController
     before_action :authenticate_manager!, only: [:new, :create, :show]
+    #before_action :authenticate_developer!, only: [:show, :search_projects]
 
-    def show
+    def show        
         @project = Project.find(params[:id])    
     end
 
@@ -22,6 +23,13 @@ class ProjectsController < ApplicationController
     def my_projects
         @projects = current_manager.projects
     end
+
+    def search_projects                  
+        @projects = Project.where("requirements ||
+                                          title || 
+                                          description like ?", "%#{params[:search]}%")
+        render :search_projects                        
+    end   
     
     private
 

@@ -5,7 +5,7 @@ class ProfilesController < ApplicationController
         @profile = Profile.new
     end
 
-    def show
+    def show        
         @profile = Profile.find(params[:id])
     end
 
@@ -17,7 +17,7 @@ class ProfilesController < ApplicationController
         else
             render :new
         end
-    end
+    end     
 
     private
 
