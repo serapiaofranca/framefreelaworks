@@ -27,7 +27,7 @@ describe 'Manager view own projects' do
         expect(page).to have_content('Nenhum Projeto Cadastrado')
     end
 
-    it 'show projects' do
+    it 'show projects successfully' do
         julia = Manager.create!(email: 'julia@manager.com', password: '123456')
         Project.create!(title: 'Libray', description: 'Virtual library', 
                     requirements: 'Ruby, Raisl,Html, CSS, Javascript', 

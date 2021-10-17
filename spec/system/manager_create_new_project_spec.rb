@@ -54,14 +54,16 @@ context 'Manager create new project' do
     end
 
     it 'error on create project' do
-        manager = Manager.create!(email: 'teste@manager.com', password: '123456')
+        manager = Manager.create(email: 'teste@manager.com', password: '123456')
             
         visit root_path
         click_on 'Entrar como Gestor'
         fill_in 'E-mail', with: manager.email
         fill_in 'Senha', with: manager.password
-        click_on 'Entrar'
-        click_on 'Cadastrar Projeto'                       
+        click_on 'Entrar'      
+        click_on 'Cadastrar Projeto' 
+        fill_in 'Previsão de início', with: '25/05/2022'             
+        fill_in 'Previsão de entrega', with: '20/07/2022'                      
         click_on 'Enviar'
 
         expect(page).not_to have_content('Projeto cadastrado com sucesso')
