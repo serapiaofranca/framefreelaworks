@@ -17,5 +17,7 @@
         <p>Previsão de entrega: <strong><%= I18n.l(@project.end_date) %></strong></p>
     </div>
     <br>
+    <%= render 'form_proposal' %>
+    <br>
     <%= link_to 'Voltar', root_path %>
 </div>

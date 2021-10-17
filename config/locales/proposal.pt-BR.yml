@@ -1,0 +1,10 @@
+pt-BR:
+  activerecord:
+    models:
+      proposal: 'Proposta de Integrar à equipe'
+    attributes:
+      proposal:
+        motivation: 'Motivação'
+        hourly_rate: 'Remuneração por hora'
+        weekly_available_hours: 'Horas disponíveis por semana'        
+        expected_completion: 'Expectativa de conclusão'

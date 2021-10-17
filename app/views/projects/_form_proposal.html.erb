@@ -1,0 +1,26 @@
+<div class='card'>
+	<h3>Faça parte desse time de desenvolvedores</h3>
+	<div>
+		<% if @project.errors.any? %>
+		  <ul>
+		    <% @project.errors.full_messages.each do |error| %>
+		      <li><%= error %></li>
+		    <% end %>
+		  </ul>
+		<% end %>
+	</div>
+	<div>
+		<%= form_with(model: @proposal) do |f|%>
+		<p><%= f.label :motivation, 'Motivação' %>
+			<%= f.text_area :motivation %></p>
+		<p><%= f.label :hourly_rate, 'Remuneração por hora' %>
+			<%= f.text_field :hourly_rate %></p>
+		<p><%= f.label :weekly_available_hours, 'Horas disponíveis por semana'%>
+			<%= f.number_field :weekly_available_hours, min: 1, max: 44, step: 1 %></p>
+		<p><%= f.label :expected_completion, 'Expectativa de conclusão' %>
+			<%= f.date_field :expected_completion %></p>
+		<br>
+		<%= f.submit 'Enviar proposta' %>
+		<% end %>
+	</div>
+</div>

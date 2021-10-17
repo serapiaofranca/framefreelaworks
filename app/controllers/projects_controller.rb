@@ -4,6 +4,7 @@ class ProjectsController < ApplicationController
     def show
         if current_manager || current_developer.profile
             @project = Project.find(params[:id])    
+               
         else
             redirect_to root_path
         end

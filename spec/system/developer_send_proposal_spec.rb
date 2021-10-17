@@ -26,10 +26,11 @@ describe 'Developer send proposal' do
 		click_on 'Entrar'
 		click_on project.title
 
+		expect(page).to have_content('Faça parte desse time de desenvolvedores')
 		expect(page).to have_content('Motivação')
-		expect(page).to have_content('Valor por hora')
-		expect(page).to have_content('Disponibilidade horas semanal')
+		expect(page).to have_content('Remuneração por hora')
+		expect(page).to have_content('Horas disponíveis por semana')
 		expect(page).to have_content('Expectativa de conclusão')
-		expect(page).to have_link('Enviar proposta')
+		expect(page).to have_button('Enviar proposta')
 	end
 end
