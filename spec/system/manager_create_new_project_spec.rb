@@ -62,8 +62,6 @@ context 'Manager create new project' do
         fill_in 'Senha', with: manager.password
         click_on 'Entrar'      
         click_on 'Cadastrar Projeto' 
-        fill_in 'Previsão de início', with: '25/05/2022'             
-        fill_in 'Previsão de entrega', with: '20/07/2022'                      
         click_on 'Enviar'
 
         expect(page).not_to have_content('Projeto cadastrado com sucesso')

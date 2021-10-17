@@ -24,14 +24,23 @@ RSpec.describe Project, type: :model do
         		expect(library.valid?).to eq(false)
 			end
 		
-			it 'start date in the pass' do
+			it 'start date less than exiration date' do
 				julia = Manager.create!(email: 'julia@manager.com', password: '123456')
 	        	library = Project.new(title: 'Library', description: 'Virtual library', 
 	                                 requirements: 'Ruby, Raisl,Html, CSS, Javascript', 
-	                        hourly_rate: 100, expiration_date: 2.days.from_now.to_date, 
-	                    start_date: 10.days.ago.to_date ,
-	                    end_date: 35.days.from_now.to_date,manager: julia)
-	        	
+	                        hourly_rate: 100, expiration_date: 5.days.from_now.to_date, 
+	                    start_date: 4.days.from_now.to_date ,
+	                    end_date: 35.days.from_now.to_date,manager: julia)	        	
+
+        		expect(library.valid?).to eq(false)
+			end
+			it 'expiration date less than date now' do
+				julia = Manager.create!(email: 'julia@manager.com', password: '123456')
+	        	library = Project.new(title: 'Library', description: 'Virtual library', 
+	                                 requirements: 'Ruby, Raisl,Html, CSS, Javascript', 
+	                        hourly_rate: 100, expiration_date: 1.day.ago.to_date, 
+	                    start_date: 10.days.from_now.to_date ,
+	                    end_date: 35.days.from_now.to_date,manager: julia)	        	
 
         		expect(library.valid?).to eq(false)
 			end
