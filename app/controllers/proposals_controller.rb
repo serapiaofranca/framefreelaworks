@@ -5,12 +5,11 @@ class ProposalsController < ApplicationController
 	end
 
 	def create
-		@proposal = Proposal.new(proposal_params)
-		@proposal.developer = current_developer
+		@proposal = current_developer.proposals.new(proposal_params)
 		@proposal.project = Project.find(params[:project_id])
-		@proposal.save
-		if @proposal.save!
-            redirect_to @proposal, notice: 'Proposta enviada com sucesso, esperando aprovação'
+		
+		if @proposal.save
+            redirect_to @proposal, notice: t('.success')
         else
             render :new
         end

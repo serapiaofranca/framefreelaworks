@@ -16,8 +16,7 @@ class ProjectsController < ApplicationController
     end
 
     def create
-        @project = Project.new(project_params)
-        @project.manager = current_manager
+        @project = current_manager.projects.new(project_params)
         if @project.save
             redirect_to @project, notice: 'Projeto cadastrado com sucesso'
         else

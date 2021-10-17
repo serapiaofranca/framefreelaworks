@@ -1,7 +1,10 @@
 pt-BR:
-  activerecord:
+  proposals:
+      create:
+        success: 'Proposta enviada com sucesso, esperando aprovação'
+  activerecord:    
     models:
-      proposal: 'Proposta de Integrar à equipe'
+      proposal:      
     attributes:
       proposal:
         motivation: 'Motivação'
