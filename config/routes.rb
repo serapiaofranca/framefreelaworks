@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   resources :projects, only: %i[new create show] do
     get 'my_projects', on: :collection
     get 'search_projects', on: :collection
+
+    resources :proposals, only: %i[new create show], shallow: true
   end
 
-  resources :profiles, only: %i[new create show]
-  
+  resources :profiles, only: %i[new create show]  
 end

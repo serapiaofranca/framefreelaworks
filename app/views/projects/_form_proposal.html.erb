@@ -10,7 +10,7 @@
 		<% end %>
 	</div>
 	<div>
-		<%= form_with(model: @proposal) do |f|%>
+		<%= form_with model: [@project, @proposal] do |f|%>
 		<p><%= f.label :motivation, 'Motivação' %>
 			<%= f.text_area :motivation %></p>
 		<p><%= f.label :hourly_rate, 'Remuneração por hora' %>
