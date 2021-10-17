@@ -31,7 +31,8 @@ describe 'Manager view own projects' do
         julia = Manager.create!(email: 'julia@manager.com', password: '123456')
         Project.create!(title: 'Libray', description: 'Virtual library', 
                     requirements: 'Ruby, Raisl,Html, CSS, Javascript', 
-                    hourly_rate: 100, expiration_date: '10/05/2022', manager: julia)
+                    hourly_rate: 100, expiration_date: '10/05/2022', 
+                    start_date: '15/05/2022',end_date: '10/07/2022',manager: julia)
     
         visit root_path
         click_on 'Entrar como Gestor'   

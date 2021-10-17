@@ -9,6 +9,8 @@ describe 'Developer send proposal' do
 			requirements: 'Ruby Rails Html Css Javascript',
 			hourly_rate: 100,
 			expiration_date: '15/12/2021',
+			start_date: '25/12/2021',
+			end_date: '15/02/2022',
 			require_presential_meetings: false,
 			manager: julia)
 		john = Developer.create!(email: 'john@developer.com', password:'123456')
@@ -24,7 +26,10 @@ describe 'Developer send proposal' do
 		click_on 'Entrar'
 		click_on project.title
 
-		expect(page).to have_content('Livraria Sao Domingos')
-
+		expect(page).to have_content('Motivação')
+		expect(page).to have_content('Valor por hora')
+		expect(page).to have_content('Disponibilidade horas semanal')
+		expect(page).to have_content('Expectativa de conclusão')
+		expect(page).to have_link('Enviar proposta')
 	end
 end

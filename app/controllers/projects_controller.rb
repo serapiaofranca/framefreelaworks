@@ -1,13 +1,14 @@
 class ProjectsController < ApplicationController
-    before_action :authenticate_manager!, only: [:new, :create]    
+    before_action :authenticate_manager!, only: [:new, :create, :my_projects]      
 
-    def show 
-        if current_manager || current_developer       
+    def show
+        if current_manager || current_developer.profile
             @project = Project.find(params[:id])    
         else
             redirect_to root_path
         end
     end
+    
 
     def new
         @project = Project.new
@@ -38,6 +39,6 @@ class ProjectsController < ApplicationController
 
     def project_params
         params.require(:project).permit(:title, :description, :requirements, :hourly_rate,
-            :expiration_date, :require_presential_meetings)
+            :expiration_date, :require_presential_meetings, :start_date, :end_date)
     end
 end

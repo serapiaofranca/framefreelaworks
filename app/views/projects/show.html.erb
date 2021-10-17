@@ -13,6 +13,8 @@
             <% end %>        
         </p>
         <p>Validade da Proposta: <strong><%= I18n.l(@project.expiration_date) %></strong></p>
+        <p>Previsão de início: <strong><%= I18n.l(@project.start_date) %></strong></p>
+        <p>Previsão de entrega: <strong><%= I18n.l(@project.end_date) %></strong></p>
     </div>
     <br>
     <%= link_to 'Voltar', root_path %>

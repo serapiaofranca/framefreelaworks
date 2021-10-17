@@ -5,8 +5,12 @@ class ProfilesController < ApplicationController
         @profile = Profile.new
     end
 
-    def show        
-        @profile = Profile.find(params[:id])
+    def show
+        if current_developer.profile       
+            @profile = Profile.find(params[:id])
+        else
+            redirect_to root_path
+        end
     end
 
     def create

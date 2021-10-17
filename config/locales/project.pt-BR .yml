@@ -10,4 +10,6 @@ pt-BR:
         hourly_rate: 'Remuneração por hora'
         expiration_date: 'Validade da Proposta'        
         require_presential_meetings: 'Requer atuação presencial'
+        start_date: 'Previsão de início'
+        end_date: 'Previsão de entrega'
         

@@ -12,6 +12,8 @@ describe 'Developer find project' do
 			requirements: 'Ruby Rails Html Css Javascript',
 			hourly_rate: 100,
 			expiration_date: '15/12/2021',
+			start_date: '25/12/2021',
+			end_date: '15/02/2022',
 			require_presential_meetings: false,
 			manager: julia)
 		project = Project.create!(title:'Estacionamento Sta Emilia', 
@@ -19,6 +21,8 @@ describe 'Developer find project' do
 			requirements: 'PHP Laravel Html Css Javascript',
 			hourly_rate: 60,
 			expiration_date: '12/01/2022',
+			start_date: '25/01/2022',
+			end_date: '15/03/2022',
 			require_presential_meetings: false,
 			manager: robert)
 		project = Project.create!(title:'Ticket Virtual', 
@@ -26,6 +30,8 @@ describe 'Developer find project' do
 			requirements: 'Javascript nodeJS React Html Css',
 			hourly_rate: 80,
 			expiration_date: '27/12/2021',
+			start_date: '31/12/2021',
+			end_date: '15/02/2022',
 			require_presential_meetings: true,
 			manager: jose)
 		john = Developer.create!(email: 'john@developer.com', password:'123456')
@@ -59,6 +65,8 @@ describe 'Developer find project' do
 			requirements: 'Ruby Rails Html Css Javascript',
 			hourly_rate: 100,
 			expiration_date: '15/12/2021',
+			start_date: '25/12/2021',
+			end_date: '15/02/2022',
 			require_presential_meetings: false,
 			manager: julia)
 		project = Project.create!(title:'Estacionamento Sta Emilia', 
@@ -66,6 +74,8 @@ describe 'Developer find project' do
 			requirements: 'PHP Laravel Html Css Javascript',
 			hourly_rate: 60,
 			expiration_date: '12/01/2022',
+			start_date: '25/01/2022',
+			end_date: '15/03/2022',
 			require_presential_meetings: false,
 			manager: robert)
 		project = Project.create!(title:'Ticket Virtual', 
@@ -73,6 +83,8 @@ describe 'Developer find project' do
 			requirements: 'Javascript nodeJS React Html Css',
 			hourly_rate: 80,
 			expiration_date: '27/12/2021',
+			start_date: '31/12/2021',
+			end_date: '15/02/2022',
 			require_presential_meetings: true,
 			manager: jose)
 		john = Developer.create!(email: 'john@developer.com', password:'123456')
