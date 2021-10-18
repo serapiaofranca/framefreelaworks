@@ -4,7 +4,8 @@ class ProjectsController < ApplicationController
     def show
         if current_manager || current_developer.profile
             @project = Project.find(params[:id])    
-            @proposal = Proposal.new   
+            @proposals = @project.proposals  
+            @proposal = Proposal.new 
         else
             redirect_to root_path
         end
@@ -25,7 +26,7 @@ class ProjectsController < ApplicationController
     end
 
     def my_projects
-        @projects = current_manager.projects
+        @projects = current_manager.projects        
     end
 
     def search_projects                  

@@ -17,7 +17,11 @@
         <p>Previsão de entrega: <strong><%= I18n.l(@project.end_date) %></strong></p>
     </div>
     <br>
-    <%= render 'form_proposal' %>
+    <% if current_manager && current_manager.eql?(@project.manager) %>    
+        <%= render 'card_proposals' %>
+    <% else current_developer %>
+        <%= render 'form_proposal' %>
+    <% end %>
     <br>
     <%= link_to 'Voltar', root_path %>
 </div>

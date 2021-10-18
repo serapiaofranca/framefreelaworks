@@ -1,0 +1,17 @@
+<section>
+	<% if @proposals.empty? %>
+		<h3>Nenhuma proposta recebida</h3>
+	<% else %>
+		<h2>Popostas recebidas</h2>
+		<% @proposals.each do |p| %>
+		    <div class="column">
+		        <div class="card">
+		            <p> Desenvolvedor: <%=  link_to( p.developer.email , proposal_path(p.id) )%></p> 
+		            <p> Valor por hora: <%=  number_to_currency(p.hourly_rate) %></p>         
+		            <p> Disponibilidade semanal: <%=  p.weekly_available_hours%> horas</p>         
+		            <p> Expectativa de entrega: <%= l p.expected_completion %></p>         
+		        </div>
+		    </div>        
+		<% end %>
+	<% end %>	
+</section>
