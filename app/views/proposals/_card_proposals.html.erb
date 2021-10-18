@@ -12,7 +12,7 @@
 		            <p> Expectativa de entrega: <%= l p.expected_completion %></p>
 		            <p> Status: <%= I18n.t (p.status) %></p>
 		            <br> 
-		            <% if p.pending? %>        
+		            <% if current_manager && p.pending? %>        
 		            	<p> <%= link_to 'Aceitar proposta', accept_proposal_path(p.id), 
 		            		method: :post %></p> 
 		            	<p> <%= link_to 'Recusar proposta', reject_proposal_path(p.id), 

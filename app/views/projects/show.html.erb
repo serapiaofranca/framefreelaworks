@@ -20,7 +20,13 @@
     <% if current_manager && current_manager.eql?(@project.manager) %>    
         <%= render 'proposals/card_proposals' %>
     <% else current_developer %>
-        <%= render 'proposals/form_proposal' %>
+        <% current_developer_proposal = Proposal.all.find{|pr| pr.developer_id == current_developer.id } %>
+        <% if current_developer_proposal %>           
+            <% @proposal = current_developer_proposal %>
+            <%= render 'proposals/developer_card_proposal' %>
+        <% else %>
+            <%= render 'proposals/form_proposal' %>
+        <% end %>
     <% end %>
     <br>
     <%= link_to 'Voltar', root_path %>
