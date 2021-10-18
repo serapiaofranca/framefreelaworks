@@ -1,7 +1,7 @@
 pt-BR: 
   pending: 'pendente' 
   accepted: 'aprovado' 
-  rejected: 'cancelado' 
+  rejected: 'rejeitado' 
   proposals:
       create:
         success: 'Proposta enviada com sucesso, esperando aprovação'        
