@@ -24,8 +24,8 @@ context 'visitor login as manager' do
         expect(page).not_to have_link('Entrar como Gestor')
         expect(page).not_to have_link('Entrar como Desenvolvedor')
         expect(page).to have_content('Login efetuado com sucesso')
-        expect(page).to have_content('Meus Projetos')
-        expect(page).to have_content('Cadastrar Projeto')
+        expect(page).to have_link('Meus Projetos')
+        expect(page).to have_link('Cadastrar Projeto')
     end
     it 'successfully log out' do
         Manager.create!(email: 'teste@manager.com', password: '123456')

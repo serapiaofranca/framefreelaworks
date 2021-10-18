@@ -14,7 +14,7 @@ RSpec.describe Project, type: :model do
         		expect(library.valid?).to eq(false)
 			end
 	
-			it 'start date equal date' do
+			it 'start date equal end date' do
 				julia = Manager.create!(email: 'julia@manager.com', password: '123456')
         		library = Project.new(title: 'Library', description: 'Virtual library', 
                     requirements: 'Ruby, Raisl,Html, CSS, Javascript', 

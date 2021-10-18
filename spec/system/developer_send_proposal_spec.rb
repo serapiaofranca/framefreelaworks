@@ -64,6 +64,7 @@ describe 'Developer send proposal' do
 		fill_in 'Expectativa de conclusão', with: '10/02/2022'
 		click_on 'Enviar proposta'
 
+		expect(page).not_to have_link('Enviar proposta')
 		expect(page).to have_content('Proposta enviada com sucesso, esperando aprovação')
 		expect(page).to have_content('Portifólio: www.john.com/projects, varios em Ruby on Rails')
 		expect(page).to have_content('R$ 90,00')

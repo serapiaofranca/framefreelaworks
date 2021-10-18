@@ -29,7 +29,7 @@ describe 'Manager view own projects' do
 
     it 'show projects successfully' do
         julia = Manager.create!(email: 'julia@manager.com', password: '123456')
-        Project.create!(title: 'Libray', description: 'Virtual library', 
+        Project.create!(title: 'Julia Library', description: 'Virtual library', 
                     requirements: 'Ruby, Raisl,Html, CSS, Javascript', 
                     hourly_rate: 100, expiration_date: '10/05/2022', 
                     start_date: '15/05/2022',end_date: '10/07/2022',manager: julia)
@@ -41,7 +41,7 @@ describe 'Manager view own projects' do
         click_on 'Entrar'
         click_on 'Meus Projetos'     
        
-        expect(page).to have_content('Libray')
+        expect(page).to have_link('Julia Library')
         expect(page).to have_content('Virtual library')
         expect(page).to have_content('Ruby, Raisl,Html, CSS, Javascript')
         expect(page).to have_content('R$ 100,00')
