@@ -9,7 +9,10 @@
 		            <p> Desenvolvedor: <%=  link_to( p.developer.email , proposal_path(p.id) )%></p> 
 		            <p> Valor por hora: <%=  number_to_currency(p.hourly_rate) %></p>         
 		            <p> Disponibilidade semanal: <%=  p.weekly_available_hours%> horas</p>         
-		            <p> Expectativa de entrega: <%= l p.expected_completion %></p>         
+		            <p> Expectativa de entrega: <%= l p.expected_completion %></p>
+		            <p> Status: <%= I18n.t (p.status) %></p>
+		            <br>         
+		            <p> <%= link_to 'Aceitar proposta', accept_proposal_path(p.id), method: :post %></p>         
 		        </div>
 		    </div>        
 		<% end %>

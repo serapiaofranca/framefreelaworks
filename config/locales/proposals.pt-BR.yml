@@ -1,7 +1,10 @@
-pt-BR:
+pt-BR: 
+  pending: 'pendente' 
+  accepted: 'aprovado' 
+  rejected: 'cancelado' 
   proposals:
       create:
-        success: 'Proposta enviada com sucesso, esperando aprovação'
+        success: 'Proposta enviada com sucesso, esperando aprovação'        
   activerecord:    
     models:
       proposal:      
@@ -11,3 +14,7 @@ pt-BR:
         hourly_rate: 'Remuneração por hora'
         weekly_available_hours: 'Horas disponíveis por semana'        
         expected_completion: 'Expectativa de conclusão'
+        
+
+   
+        
