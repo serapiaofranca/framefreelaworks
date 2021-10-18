@@ -20,7 +20,7 @@
     <% if current_manager && current_manager.eql?(@project.manager) %>    
         <%= render 'proposals/card_proposals' %>
     <% else current_developer %>
-        <% current_developer_proposal = Proposal.all.find{|pr| pr.developer_id == current_developer.id } %>
+        <% current_developer_proposal = @proposals.find{|pr| pr.developer_id == current_developer.id } %>
         <% if current_developer_proposal %>           
             <% @proposal = current_developer_proposal %>
             <%= render 'proposals/developer_card_proposal' %>

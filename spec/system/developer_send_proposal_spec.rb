@@ -81,7 +81,7 @@ describe 'Developer send proposal' do
                     start_date: '15/05/2022',end_date: '10/07/2022',manager: julia)
 
         pablo = Developer.create!(email: 'pablo@developer.com', password:'123456')
-		Profile.create!(full_name: 'Pablo Estevez', social_name: 'paulo', 
+		Profile.create!(full_name: 'Pablo Estevez', social_name: 'Paulo', 
 			birth_date: '10/05/1992', education: 'Engenharia de Software', 
 			skills: 'Ruby, Php, Javascript, CSS, Html, SqlServer', 
 			employment_history: 'Nasa Network, 3 anos', developer: pablo )		
@@ -98,7 +98,7 @@ describe 'Developer send proposal' do
 		click_on 'Library cloud'		
 
 		expect(current_path).to eq project_path(library_cloud)		
-		expect(page).to have_content 'pablo@developer.com'
+		expect(page).to have_content 'Proposta de: Paulo'
 		expect(page).to have_content 'R$ 80,00'
 		expect(page).to have_content /20/
 		expect(page).to have_content '01/07/2022'
