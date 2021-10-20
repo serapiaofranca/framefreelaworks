@@ -218,6 +218,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  activestorage
   bootsnap (>= 1.4.4)
   byebug
   capybara
