@@ -105,5 +105,4 @@ describe 'Developer send proposal' do
 		expect(page).to have_content 'Status: pendente'		
 		expect(page).not_to have_link 'Enviar proposta'
 	end
-	
 end

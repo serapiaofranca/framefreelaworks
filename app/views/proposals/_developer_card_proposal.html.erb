@@ -9,8 +9,22 @@
         	<strong><%= number_to_currency(@proposal.hourly_rate) %></strong></p>  
         <p>Horas disponíveis por semana:
             <strong><%= @proposal.weekly_available_hours %></strong></p>
-        <p>Previsão de conclusão: <strong><%= I18n.l(@proposal.expected_completion) %></strong></p>
+        <p>Previsão de conclusão: 
+            <strong><%= I18n.l(@proposal.expected_completion) %></strong></p>
         <p>Status: <strong><%= I18n.t(@proposal.status) %></strong></p>
-    </div>    
+        <br>
+        
+    </div> 
+        <% if @proposal.accepted?  && Date.today < @proposal.updated_at.to_date + 4.days  %>
+            <p>Você tem até 
+                <strong><%= I18n.l(@proposal.updated_at.to_date + 4.days) %>                
+                </strong> para cancelar!
+            </p>
+            <div id="cancel">
+                <%= render 'proposals/justification_form' %>                    
+            </div>
+        <% elsif @proposal.canceled? || @proposal.rejected? %>
+            <p>Mensagem: <strong><%= @proposal.justification %></strong></p>
+        <% end %> 
     <br>    
 </div>

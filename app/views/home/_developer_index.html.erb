@@ -6,10 +6,10 @@
     <div><span>Nenhum projeto disponível</span></div>
   <% else %>
     <div>      
-      <%= form_with url: "/projects/search_projects", method: :get do |form| %>
+      <%= form_with url: "/projects/search_projects" do |form| %>
         <%= form.label :search, "Pesquisar projetos" %>
         <%= form.text_field :search %>
-        <%= form.submit "Buscar", class: "botao" %>
+        <%= form.submit "Buscar" %>
       <% end %>         	
   	</div>    
 	  <%= render '/layouts/project_card' %>		

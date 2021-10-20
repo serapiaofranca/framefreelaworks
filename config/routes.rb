@@ -5,11 +5,12 @@ Rails.application.routes.draw do
 
   resources :projects, only: %i[new create show] do
     get 'my_projects', on: :collection
-    get 'search_projects', on: :collection
+    post 'search_projects', on: :collection
 
     resources :proposals, only: %i[new create show], shallow: true do
       post 'accept', on: :member
       post 'reject', on: :member 
+      post 'cancel', on: :member 
     end
   end
 

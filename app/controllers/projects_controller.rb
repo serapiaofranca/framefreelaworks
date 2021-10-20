@@ -42,4 +42,5 @@ class ProjectsController < ApplicationController
         params.require(:project).permit(:title, :description, :requirements, :hourly_rate,
             :expiration_date, :require_presential_meetings, :start_date, :end_date)
     end
+    
 end

@@ -27,6 +27,13 @@ class ProposalsController < ApplicationController
 		redirect_to @proposal.project
 	end
 
+	def cancel
+		@proposal = Proposal.find(params[:id])
+		@proposal.justification = params[:justification]
+		@proposal.canceled!
+		redirect_to @proposal.project
+	end
+
 
 	private
 

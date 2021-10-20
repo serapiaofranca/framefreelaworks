@@ -1,0 +1,8 @@
+<div>      
+  <%= form_with url: cancel_proposal_path(@proposal.id) do |form| %>
+    <%= form.label :justification, 'Mensagem' %>
+    <%= form.text_area :justification %>
+    <%= form.submit "Cancelar proposta",  
+        data: { confirm: 'Essa ação não pode ser desfeita, tem certeza?' }  %>
+  <% end %>         	
+</div>    
