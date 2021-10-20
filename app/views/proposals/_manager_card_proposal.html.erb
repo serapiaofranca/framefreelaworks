@@ -1,9 +1,9 @@
 <div class='card'>
-    <h2> <% current_developer.email %></h2>
+    <h2> <% @proposal.developer.email %></h2>
     <br>
      <h3><%= @proposal.project.description %></h3>
     <div class='card'> 
-    	<h2>Proposta de: <%= current_developer.profile.social_name %></h2>  
+    	<h2>Proposta de: <%= @proposal.developer.profile.social_name %></h2>  
         <p>Motivação: <strong><%= @proposal.motivation %></strong></p>
         <p>Remuneração por hora: 
         	<strong><%= number_to_currency(@proposal.hourly_rate) %></strong></p>  

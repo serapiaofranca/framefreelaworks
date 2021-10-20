@@ -23,15 +23,22 @@ class ProposalsController < ApplicationController
 
 	def reject
 		@proposal = Proposal.find(params[:id])
-		@proposal.rejected!
-		redirect_to @proposal.project
+		@proposal.justification = params[:justification]
+		if @proposal.valid? && @proposal.rejected!
+			redirect_to @proposal.project			
+		else			
+			render :show
+		end
 	end
 
 	def cancel
 		@proposal = Proposal.find(params[:id])
 		@proposal.justification = params[:justification]
-		@proposal.canceled!
-		redirect_to @proposal.project
+		if @proposal.valid? && @proposal.canceled!
+			redirect_to @proposal.project			
+		else
+			render :show			
+		end
 	end
 
 

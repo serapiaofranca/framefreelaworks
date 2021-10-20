@@ -3,7 +3,7 @@
 		<h3>Nenhuma proposta recebida</h3>
 	<% else %>
 		<h2>Popostas recebidas</h2>
-		<% @proposals.each do |p| %>
+		<% @proposals.each do |p| %>		
 		    <div class="column">
 		        <div class="card">
 		            <p> Desenvolvedor: <%=  link_to( p.developer.email , proposal_path(p.id) )%></p> 
@@ -12,12 +12,16 @@
 		            <p> Expectativa de entrega: <%= l p.expected_completion %></p>
 		            <p> Status: <%= I18n.t (p.status) %></p>
 		            <br> 
-		            <% if current_manager && p.pending? %>        
+		            <% if current_manager && p.pending? %> 
+		            	<% @proposal = p %>       
 		            	<p> <%= link_to 'Aceitar proposta', accept_proposal_path(p.id), 
-		            		method: :post %></p> 
-		            	<p> <%= link_to 'Recusar proposta', reject_proposal_path(p.id), 
 		            		method: :post %></p>
-		            <% end %>         
+		            	<div id="cancel">
+                			<%= render 'proposals/rejected_message_form' %>            
+            			</div>
+        			<% elsif p.canceled? || p.rejected? %>
+            			<p>Mensagem: <strong><%= p.justification %></strong></p>
+        			<% end %> 		                    
 		        </div>
 		    </div>        
 		<% end %>

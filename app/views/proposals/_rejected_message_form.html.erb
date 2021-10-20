@@ -1,0 +1,8 @@
+<div>      
+  <%= form_with url: reject_proposal_path(@proposal.id) do |form| %>
+    <%= form.label I18n.t(:justification) %>
+    <%= form.text_area :justification %>
+    <%= form.submit "Recusar proposta",  
+        data: { confirm: 'Essa ação não pode ser desfeita, tem certeza?' }  %>
+  <% end %>         	
+</div>   

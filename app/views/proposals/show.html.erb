@@ -1,3 +1,20 @@
-<%= render 'developer_card_proposal' %>
+<div>	
+    <% if @proposal.errors.any? %>
+    	<h3>erros da página</h3>
+      	<ul>
+	      	<% @proposal.errors.full_messages.each do |error| %>
+	      	  <li><%= error %></li>
+	      	<% end %>
+      	</ul>
+    <% end %>
+</div>
+
+
+<% if current_developer %>
+	<%= render 'developer_card_proposal' %>
+<% elsif current_manager %>
+	<%= render 'manager_card_proposal' %>	
+<% end %>
+
 
 <%= link_to 'Voltar', root_path %>

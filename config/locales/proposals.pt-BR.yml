@@ -1,21 +1,24 @@
+---
 pt-BR: 
+  justification: 'Mensagem'          
   pending: 'pendente' 
   accepted: 'aprovado' 
   rejected: 'rejeitado' 
-  canceled: 'cancelado'
-  justification: 'Mensagem'   
+  canceled: 'cancelado'     
   proposals:
       create:
-        success: 'Proposta enviada com sucesso, esperando aprovação'
-  activerecord:    
+        success: 'Proposta enviada com sucesso, esperando aprovação'        
+  activerecord:
     models:
-      proposal:      
-    attributes:
+      proposal: 'Proposta'            
+    attributes:      
       proposal:
         motivation: 'Motivação'
         hourly_rate: 'Remuneração por hora'
         weekly_available_hours: 'Horas disponíveis por semana'        
         expected_completion: 'Expectativa de conclusão'
+        justification: 'Mensagem'
+        
 
 
         
