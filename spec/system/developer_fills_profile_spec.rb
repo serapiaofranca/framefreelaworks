@@ -53,6 +53,7 @@ context 'developer fills profile' do
         fill_in 'Escolaridade', with: '10/05/1980'
         fill_in 'Conhecimentos técnicos', with: 'Html Css Javascript'
         fill_in 'Experiência Profissional', with: 'menos de 2 anos'
+        attach_file 'Image', Rails.root.join('public/images/rails.png')
         click_on 'Enviar'
 
         expect(page).to have_content('Perfil completado com sucesso')        

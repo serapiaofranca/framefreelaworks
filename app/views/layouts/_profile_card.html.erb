@@ -2,7 +2,8 @@
     <div class="column">
         <div class="card">
             <div>
-                <%= image_tag(p.avatar style: "width: 50px; height: 50px;") %>
+            <%= image_tag(user.avatar , class: "ui-w-100-forced rounded-circle mr-3", style: "width: 90px; height: 90px;") %>                
+                
             </div>
             <div class="card">
                 <p> Nome Social: <%=  link_to( p.social_name , profile_path(p.id) )%></p>

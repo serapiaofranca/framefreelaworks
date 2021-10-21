@@ -1,7 +1,8 @@
 <div class='card'>
     <h1><%= @profile.social_name %> </h1>
     <br>
-    <h3><%= @profile.avatar %> </h3>
+    <%= image_tag(@profile.avatar , class: "ui-w-100-forced rounded-circle mr-3", style: "width: 90px; height: 90px;") %>
+
     <br>
      <h2>Nome completo:<%= @profile.full_name %></h2>
     <div class='card'>   
