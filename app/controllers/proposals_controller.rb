@@ -1,7 +1,8 @@
 class ProposalsController < ApplicationController
 
-	def show
-		@proposal = Proposal.find(params[:id])
+	before_action :set_proposal, only: %i[ show destroy accept reject cancel ]
+
+	def show		
 	end
 
 	def create
@@ -15,14 +16,18 @@ class ProposalsController < ApplicationController
         end
 	end
 
-	def accept
-		@proposal = Proposal.find(params[:id])
+	def destroy
+		@project = Project.find(@proposal.project.id)
+		@proposal.destroy
+		redirect_to @project, notice: t('.destroyed')
+	end
+
+	def accept		
 		@proposal.accepted!
 		redirect_to @proposal.project
 	end
 
 	def reject
-		@proposal = Proposal.find(params[:id])
 		@proposal.justification = params[:justification]
 		if @proposal.valid? && @proposal.rejected!
 			redirect_to @proposal.project			
@@ -32,7 +37,6 @@ class ProposalsController < ApplicationController
 	end
 
 	def cancel
-		@proposal = Proposal.find(params[:id])
 		@proposal.justification = params[:justification]
 		if @proposal.valid? && @proposal.canceled!
 			redirect_to @proposal.project			
@@ -46,6 +50,10 @@ class ProposalsController < ApplicationController
 
 	def proposal_params
 		params.require(:proposal).permit(:motivation, :hourly_rate, 
-			:weekly_available_hours, :expected_completion)
+			:weekly_available_hours, :expected_completion, :project)
+	end
+
+	def set_proposal
+		@proposal = Proposal.find(params[:id])
 	end
 end
