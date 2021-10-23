@@ -1,4 +1,7 @@
 pt-BR:
+  openned: 'Aceitando Propostas'          
+  development: 'Em Desenvolvimento ' 
+  production: 'Projeto Finalizado'
   activerecord:
     models:
       project: 'Projeto de Software'

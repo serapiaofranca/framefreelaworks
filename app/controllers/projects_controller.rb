@@ -29,12 +29,19 @@ class ProjectsController < ApplicationController
         @projects = current_manager.projects        
     end
 
-    def search_projects                  
+    def search_projects
+        @projects_openned = Project.where("situation like ?", "% :openned %")                  
         @projects = Project.where("requirements ||
                                           title || 
                                           description like ?", "%#{params[:search]}%")
         render :search_projects                        
-    end   
+    end 
+
+    def development 
+        @project = Project.find(params[:id])      
+        @project.development!
+        redirect_to @project, notice: 'Envio de Propostas encerrado'
+    end
     
     private
 

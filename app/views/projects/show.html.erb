@@ -1,3 +1,7 @@
+<% if current_manager && current_manager.eql?(@project.manager) %>
+    <%= render 'header_show' %>
+<% end %>
+
 <div class='card'>
     <h1>Projeto: <%= @project.title %> </h2>
     <br>
@@ -24,7 +28,7 @@
         <% if current_developer_proposal %>           
             <% @proposal = current_developer_proposal %>
             <%= render 'proposals/developer_card_proposal' %>
-        <% else %>
+        <% elsif @project.openned? %>
             <%= render 'proposals/form_proposal' %>
         <% end %>
     <% end %>

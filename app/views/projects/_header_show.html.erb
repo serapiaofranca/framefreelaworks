@@ -1,0 +1,5 @@
+<header>
+	<% if @project && @project.openned? %>
+		<%= link_to 'Encerrar envio de propostas', development_project_path(@project.id), method: :post %>
+	<% end %>
+</header>

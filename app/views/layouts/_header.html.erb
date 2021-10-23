@@ -1,4 +1,4 @@
- <nav>
+ <header>
     <% if manager_signed_in? %>
         <ul>
             <li><%= link_to 'Meus Projetos', my_projects_projects_path %></li>            
@@ -20,4 +20,4 @@
         <p><%= link_to 'Entrar como Gestor', new_manager_session_path %></p>
         <p><%= link_to 'Entrar como Desenvolvedor', new_developer_session_path %></p>
     <% end %>
-</nav>
+</header>
