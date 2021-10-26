@@ -1,8 +1,15 @@
 class ProposalsController < ApplicationController
-
+	before_action :authenticate_developer!, only: %i[create cancel destroy]
+	before_action :authenticate_manager!, only: %i[new accept reject ]
+	
 	before_action :set_proposal, only: %i[ show destroy accept reject cancel ]
 
-	def show		
+	def show
+		if current_manager || current_developer && current_developer.profile
+            @proposal = Proposal.find(params[:id])             
+        else
+            redirect_to root_path
+        end	
 	end
 
 	def create

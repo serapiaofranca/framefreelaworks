@@ -12,4 +12,11 @@ describe 'User Manager authentication' do
 
     expect(response).to redirect_to(new_manager_session_path)
   end
+
+  it 'cannot show project without login' do
+    get '/projects/1'
+  
+    expect(response).to redirect_to(root_path)
+  end
+
 end

@@ -1,8 +1,9 @@
 class ProjectsController < ApplicationController
-    before_action :authenticate_manager!, only: [:new, :create, :my_projects]      
+    before_action :authenticate_manager!, only: %i[new create my_projects development] 
+    before_action :authenticate_developer!, only: %i[search_projects]      
 
     def show
-        if current_manager || current_developer.profile
+        if current_manager || current_developer && current_developer.profile
             @project = Project.find(params[:id])    
             @proposals = @project.proposals  
             @proposal = Proposal.new 

@@ -6,10 +6,10 @@ class ProfilesController < ApplicationController
     end
 
     def show
-        if current_developer.profile       
+        if current_developer && current_developer.profile    
             @profile = Profile.find(params[:id])
         else
-            redirect_to root_path
+            redirect_to developer_session_path
         end
     end
 
