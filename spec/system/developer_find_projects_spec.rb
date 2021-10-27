@@ -17,7 +17,7 @@ describe 'Developer find project' do
 			require_presential_meetings: false,
 			manager: julia)
 		project = Project.create!(title:'Estacionamento Sta Emilia', 
-			description: 'Estacoinamento virtual para agendamento de vagas', 
+			description: 'Estacionamento virtual para agendamento de vagas', 
 			requirements: 'PHP Laravel Html Css Javascript',
 			hourly_rate: 60,
 			expiration_date: '12/01/2022',

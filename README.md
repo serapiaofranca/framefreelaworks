@@ -10,14 +10,31 @@ Things you may want to cover:
 
 * O.S : 20.04.2-Ubuntu x86_64 GNU/Linux
 
-* Configuration: 'bundle install' in root project
+* Configuration: 
+    -> run 'bundle install' in root project
+    -> run 'yarn' in root project
 
-* Database creation / inicialization : 'rails db:migrate' in root project
+* Database creation / inicialization : 
+    -> run 'rails db:migrate' in root project
 
-* How to run the test suite: 'rspec'
+* How to run the test suite: 
+    -> run 'rspec' in root project
 
-* Start app ~> in root_project_folder run `rails s` 
-    access to web browser: `http://localhost:3000`
+* Start app 
+    -> in root_project_folder run `rails s` 
+    -> access to web browser: `http://localhost:3000`
+    -> enter with login exists or create a new login user
+
+    # Login tests: 
+    
+    ** Manager login:
+    -> email: 'julia@manager.com' , password: '123456'
+    -> email: 'robert@manager.com' , password: '123456'
+    -> email: 'jose@manager.com' , password: '123456'
+
+    ** Developer login:
+    -> email: 'john@developer.com' , password: '123456'
+    -> email: 'emily@developer.com' , password: '123456'
 
 * Deployment instructions : *** future implementation
 
@@ -47,4 +64,6 @@ Things you may want to cover:
 
 .  Na tela inicial o desenvolvedor também tem uma barra de pesquisar onde poderá filtrar projetos por
     palavras-chave que podem estar no título, descrição ou requerimentos do projeto.
+
+
 
