@@ -1,5 +1,5 @@
 class ProposalsController < ApplicationController
-	before_action :authenticate_developer!, only: %i[create cancel destroy]
+	before_action :authenticate_developer!, only: %i[new create cancel destroy]
 	before_action :authenticate_manager!, only: %i[new accept reject ]
 	
 	before_action :set_proposal, only: %i[ show destroy accept reject cancel ]
@@ -12,6 +12,11 @@ class ProposalsController < ApplicationController
         end	
 	end
 
+	def new	
+		@project = Project.find(params[:project_id])		
+		@proposal = Proposal.new		
+	end
+
 	def create
 		@proposal = current_developer.proposals.new(proposal_params)
 		@proposal.project = Project.find(params[:project_id])
@@ -19,6 +24,7 @@ class ProposalsController < ApplicationController
 		if @proposal.save
             redirect_to @proposal, notice: t('.success')
         else
+        	@project = @proposal.project
             render :new
         end
 	end
@@ -51,7 +57,7 @@ class ProposalsController < ApplicationController
 
 	def proposal_params
 		params.require(:proposal).permit(:motivation, :hourly_rate, 
-			:weekly_available_hours, :expected_completion, :project)
+			:weekly_available_hours, :expected_completion, :project_id)
 	end
 
 	def set_proposal

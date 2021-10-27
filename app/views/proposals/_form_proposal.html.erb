@@ -1,9 +1,9 @@
 <div class='card'>
 	<h3>Faça parte desse time de desenvolvedores</h3>
 	<div>
-		<% if @project.errors.any? %>
+		<% if @proposal.errors.any? %>
 		  <ul>
-		    <% @project.errors.full_messages.each do |error| %>
+		    <% @proposal.errors.full_messages.each do |error| %>
 		      <li><%= error %></li>
 		    <% end %>
 		  </ul>
