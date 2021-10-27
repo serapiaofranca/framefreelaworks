@@ -1,6 +1,21 @@
 require 'rails_helper'
 
 describe 'Manager view own projects' do
+
+    it 'not logged and not access project' do
+        julia = Manager.create!(email: 'julia@manager.com', password: '123456')
+        Project.create!(title: 'Julia Library', description: 'Virtual library', 
+                    requirements: 'Ruby, Raisl,Html, CSS, Javascript', 
+                    hourly_rate: 100, expiration_date: '10/05/2022', 
+                    start_date: '15/05/2022',end_date: '10/07/2022',manager: julia)
+            
+        visit '/projects/1'
+       
+        expect(page).not_to have_link('Meus Projetos', href: my_projects_projects_path)
+        expect(page).to have_link('Entrar como Gestor')
+        expect(page).to have_link('Entrar como Desenvolvedor')
+    end
+
     it 'using menu' do
         julia = Manager.create!(email: 'julia@manager.com', password: '123456')
     
@@ -45,5 +60,5 @@ describe 'Manager view own projects' do
         expect(page).to have_content('Virtual library')
         expect(page).to have_content('Ruby, Raisl,Html, CSS, Javascript')
         expect(page).to have_content('R$ 100,00')
-    end
+    end   
 end

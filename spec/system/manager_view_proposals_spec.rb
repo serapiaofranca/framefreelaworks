@@ -1,6 +1,7 @@
 require 'rails_helper'
 
 describe 'Manager view proposals' do
+	
 	it 'should view all proposals from owned project' do
 		julia = Manager.create!(email: 'julia@manager.com', password: '123456')
         library_cloud = Project.create!(title: 'Library cloud', description: 'Locação virtual de livros', 

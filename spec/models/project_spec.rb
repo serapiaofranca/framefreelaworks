@@ -2,6 +2,21 @@ require 'rails_helper'
 
 RSpec.describe Project, type: :model do
 
+	describe 'associations' do
+	    it { should belong_to(:manager).class_name('Manager') }
+	end
+
+
+	describe 'validations' do
+	    it { should validate_presence_of(:title) }
+	    it { should validate_presence_of(:description) }
+	    it { should validate_presence_of(:requirements) }
+	    it { should validate_presence_of(:hourly_rate) }
+	    it { should validate_presence_of(:start_date) }
+	    it { should validate_presence_of(:end_date) }
+	    it { should validate_presence_of(:expiration_date) }
+	end	
+
 	describe '#valid?' do
 		context 'should not be valid' do
 			it 'start date greater than end date' do
