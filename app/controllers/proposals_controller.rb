@@ -1,5 +1,5 @@
 class ProposalsController < ApplicationController
-	before_action :authenticate_developer!, only: %i[new create cancel destroy]
+	before_action :authenticate_developer!, only: %i[new create cancel ]
 	before_action :authenticate_manager!, only: %i[new accept reject ]
 	
 	before_action :set_proposal, only: %i[ show destroy accept reject cancel ]
