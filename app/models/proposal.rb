@@ -9,5 +9,6 @@ class Proposal < ApplicationRecord
   validates :hourly_rate, numericality: { greater_than: 10 }
 
   validates :justification, presence: true, on: :update
+  
 
 end

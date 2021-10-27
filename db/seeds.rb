@@ -1,22 +1,21 @@
-# Managers
-julia = Manager.create!(email: 'julia@manager.com', password: '123456')
-robert = Manager.create!(email: 'robert@manager.com', password: '123456')
-jose = Manager.create!(email: 'jose@manager.com', password: '123456')	
 
-# Developers
-john = Developer.create!(email: 'john@developer.com', password:'123456')
-Profile.create!(full_name: 'John Travos', social_name: 'john', 
+Manager.create(email: 'julia@manager.com', password: '123456')
+Manager.create(email: 'robert@manager.com', password: '123456')
+Manager.create(email: 'jose@manager.com', password: '123456')	
+
+Developer.create(email: 'john@developer.com', password:'123456')
+Profile.create(full_name: 'John Travos', social_name: 'john', 
 	birth_date: '11/12/1992', education: 'Engenharia social', 
 	skills: 'Ruby, Php, C#, Javascript', employment_history: 'Nasah 3 anos',
-	avatar: '/public/images/rails.png',	developer: john )
-emily = Developer.create!(email: 'emily@developer.com', password:'123456')
-Profile.create!(full_name: 'Emily Campos', social_name: 'Emily', 
+	developer_id: 1 )
+	
+Developer.create(email: 'emily@developer.com', password:'123456')
+Profile.create(full_name: 'Emily Campos', social_name: 'Emily', 
 	birth_date: '20/07/1995', education: 'Ciência da Comutação', 
 	skills: 'Ruby, Java, Html, CSS, Javascript', employment_history: 'ImBM 2 anos', 
-	avatar: '/public/images/rails.png', developer: emily )
+	developer_id: 2 )
 
-# Projects
-project1 = Project.create!(title:'Livraria Sao Domingos', 
+Project.create(title:'Livraria Sao Domingos', 
 	description: 'Biblioteca virtual para locação de livros usados', 
 	requirements: 'Ruby Rails Html Css Javascript',
 	hourly_rate: 100,
@@ -24,8 +23,8 @@ project1 = Project.create!(title:'Livraria Sao Domingos',
 	start_date: 15.day.from_now.to_date,
 	end_date: 60.day.from_now.to_date,
 	require_presential_meetings: false,
-	manager: julia)
-project2 = Project.create!(title:'Estacionamento Sta Emilia', 
+	manager_id: 1)
+Project.create(title:'Estacionamento Sta Emilia', 
 	description: 'Estacionamento virtual para agendamento de vagas', 
 	requirements: 'PHP Laravel Html Css Javascript',
 	hourly_rate: 90,
@@ -33,8 +32,8 @@ project2 = Project.create!(title:'Estacionamento Sta Emilia',
 	start_date: 13.day.from_now.to_date,
 	end_date: 57.day.from_now.to_date,
 	require_presential_meetings: false,
-	manager: robert)
-project3 = Project.create!(title:'Ticket Virtual', 
+	manager_id: 2)
+Project.create(title:'Ticket Virtual', 
 	description: 'Loja virtual para vendas de ingressos', 
 	requirements: 'Javascript nodeJS React Html Css',
 	hourly_rate: 80,
@@ -42,13 +41,12 @@ project3 = Project.create!(title:'Ticket Virtual',
 	start_date: 20.day.from_now.to_date,
 	end_date: 80.day.from_now.to_date,
 	require_presential_meetings: true,
-	manager: jose)
+	manager_id: 3)
 
-# Proposals
-Proposal.create!(motivation: 'Novos desafios em projetos Rails', hourly_rate: 95,
+Proposal.create(motivation: 'Novos desafios em projetos Rails', hourly_rate: 95,
 						weekly_available_hours: 20, expected_completion: 70.day.from_now.to_date, 
-						developer: john, project: project1)
+						developer_id: 1, project_id: 1)
 
-Proposal.create!(motivation: 'Experiência em projetos web e banco de dados', hourly_rate: 85,
+Proposal.create(motivation: 'Experiência em projetos web e banco de dados', hourly_rate: 85,
 						weekly_available_hours: 20, expected_completion: 67.day.from_now.to_date, 
-						developer: emily, project: project2)
+						developer_id: 2, project_id: 2)
