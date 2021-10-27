@@ -4,16 +4,18 @@ Manager.create(email: 'robert@manager.com', password: '123456')
 Manager.create(email: 'jose@manager.com', password: '123456')	
 
 Developer.create(email: 'john@developer.com', password:'123456')
-Profile.create(full_name: 'John Travos', social_name: 'john', 
+Profile.create!(full_name: 'John Travos', social_name: 'john', 
 	birth_date: '11/12/1992', education: 'Engenharia social', 
 	skills: 'Ruby, Php, C#, Javascript', employment_history: 'Nasah 3 anos',
-	developer_id: 1 )
-	
+	developer_id: 1)
+Profile.last.avatar.attach(io: File.open(File.join(Rails.root, '/storage/rails.png')), filename: "rails.png", content_type: "image/png")
+
 Developer.create(email: 'emily@developer.com', password:'123456')
-Profile.create(full_name: 'Emily Campos', social_name: 'Emily', 
+Profile.create!(full_name: 'Emily Campos', social_name: 'Emily', 
 	birth_date: '20/07/1995', education: 'Ciência da Comutação', 
 	skills: 'Ruby, Java, Html, CSS, Javascript', employment_history: 'ImBM 2 anos', 
-	developer_id: 2 )
+	developer_id: 2)
+Profile.last.avatar.attach(io: File.open(File.join(Rails.root, '/storage/rails.png')), filename: "rails.png", content_type: "image/png")
 
 Project.create(title:'Livraria Sao Domingos', 
 	description: 'Biblioteca virtual para locação de livros usados', 
@@ -49,4 +51,20 @@ Proposal.create(motivation: 'Novos desafios em projetos Rails', hourly_rate: 95,
 
 Proposal.create(motivation: 'Experiência em projetos web e banco de dados', hourly_rate: 85,
 						weekly_available_hours: 20, expected_completion: 67.day.from_now.to_date, 
+						developer_id: 2, project_id: 1)
+						
+Proposal.create(motivation: 'Novos desafios em projetos Rails', hourly_rate: 95,
+						weekly_available_hours: 20, expected_completion: 70.day.from_now.to_date, 
+						developer_id: 1, project_id: 2)
+
+Proposal.create(motivation: 'Experiência em projetos web e banco de dados', hourly_rate: 85,
+						weekly_available_hours: 20, expected_completion: 67.day.from_now.to_date, 
 						developer_id: 2, project_id: 2)
+						
+Proposal.create(motivation: 'Novos desafios em projetos Rails', hourly_rate: 95,
+						weekly_available_hours: 20, expected_completion: 70.day.from_now.to_date, 
+						developer_id: 1, project_id: 3)
+
+Proposal.create(motivation: 'Experiência em projetos web e banco de dados', hourly_rate: 85,
+						weekly_available_hours: 20, expected_completion: 67.day.from_now.to_date, 
+						developer_id: 2, project_id: 3)
