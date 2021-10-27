@@ -25,9 +25,6 @@
             </div>
         <% elsif @proposal.canceled? || @proposal.rejected? %>
             <p>Mensagem: <strong><%= @proposal.justification %></strong></p>
-        <% else @proposal.valid? && @proposal.pending? %>
-            <li><%= link_to 'Excluir proposta', @proposal, method: :delete, 
-                data: { confirm: 'Essa ação não pode ser desfeita, tem certeza?' }  %></li>
         <% end %> 
     <br>    
 </div>

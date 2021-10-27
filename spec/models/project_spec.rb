@@ -12,6 +12,7 @@ RSpec.describe Project, type: :model do
 	    it { should validate_presence_of(:description) }
 	    it { should validate_presence_of(:requirements) }
 	    it { should validate_presence_of(:hourly_rate) }
+	    it { should validate_numericality_of(:hourly_rate) }      
 	    it { should validate_presence_of(:start_date) }
 	    it { should validate_presence_of(:end_date) }
 	    it { should validate_presence_of(:expiration_date) }
@@ -34,7 +35,7 @@ RSpec.describe Project, type: :model do
         		library = Project.new(title: 'Library', description: 'Virtual library', 
                     requirements: 'Ruby, Raisl,Html, CSS, Javascript', 
                     hourly_rate: 100, expiration_date: 2.days.from_now.to_date, 
-                    start_date: 15.days.from_now.to_date ,end_date: 15.days.from_now.to_date,manager: julia)
+                    start_date: 3.days.from_now.to_date ,end_date: 3.days.from_now.to_date,manager: julia)
 
         		expect(library.valid?).to eq(false)
 			end
@@ -43,9 +44,9 @@ RSpec.describe Project, type: :model do
 				julia = Manager.create!(email: 'julia@manager.com', password: '123456')
 	        	library = Project.new(title: 'Library', description: 'Virtual library', 
 	                                 requirements: 'Ruby, Raisl,Html, CSS, Javascript', 
-	                        hourly_rate: 100, expiration_date: 5.days.from_now.to_date, 
-	                    start_date: 4.days.from_now.to_date ,
-	                    end_date: 35.days.from_now.to_date,manager: julia)	        	
+	                        hourly_rate: 100, expiration_date: 2.days.from_now.to_date, 
+	                    start_date: 1.days.from_now.to_date ,
+	                    end_date: 3.days.from_now.to_date,manager: julia)	        	
 
         		expect(library.valid?).to eq(false)
 			end
@@ -61,8 +62,7 @@ RSpec.describe Project, type: :model do
 			end
 		end
 
-		it 'should be valid' do
-			
+		it 'should be valid' do			
 			julia = Manager.create!(email: 'julia@manager.com', password: '123456')
         	library = Project.new(title: 'Library', description: 'Virtual library', 
                     requirements: 'Ruby, Raisl,Html, CSS, Javascript', 

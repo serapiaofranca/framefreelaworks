@@ -23,12 +23,6 @@ class ProposalsController < ApplicationController
         end
 	end
 
-	def destroy
-		@project = Project.find(@proposal.project.id)
-		@proposal.destroy
-		redirect_to @project, notice: t('.destroyed')
-	end
-
 	def accept		
 		@proposal.accepted!
 		redirect_to @proposal.project

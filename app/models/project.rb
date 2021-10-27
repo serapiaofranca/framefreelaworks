@@ -4,9 +4,11 @@ class Project < ApplicationRecord
 
     enum situation: {openned: 3, development: 6, production: 9}
 
-    validates :title, :description, :requirements, :hourly_rate,
-                :start_date, :end_date, :expiration_date, presence: true 
+    validates :title, :description, :requirements, :start_date, 
+                :end_date, :expiration_date, presence: true
+    validates :hourly_rate, numericality: { greater_than: 10 }, presence: :true 
 
+    validate :start_date_greater_than_end_date
     validate :start_date_greater_than_end_date
     validate :start_date_lesser_expiration_date
     validate :expiration_date_lesser_than_now, on: :create
