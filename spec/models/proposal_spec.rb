@@ -7,7 +7,6 @@ RSpec.describe Proposal, type: :model do
 	    it { should belong_to(:developer).class_name('Developer') }
 	end
 
-
 	describe 'validations' do
 	    it { should validate_presence_of(:motivation) }
 	    it { should validate_presence_of(:hourly_rate) }

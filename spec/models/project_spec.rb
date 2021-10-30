@@ -4,6 +4,7 @@ RSpec.describe Project, type: :model do
 
 	describe 'associations' do
 	    it { should belong_to(:manager).class_name('Manager') }
+			it { should have_many(:proposals).class_name('Proposal') }
 	end
 
 
@@ -86,7 +87,7 @@ RSpec.describe Project, type: :model do
 				cris = Manager.create!(email: 'cris@manager.com', password: '123456')
 	        	library = Project.new(title: 'Virtual Library', description: 'Livraria virtual', 
 	                                 requirements: 'Ruby, Raisl,Html, CSS, Javascript', 
-	                        hourly_rate: 100, expiration_date: 1.day.ago.to_date, 
+	                        hourly_rate: 100, expiration_date: 1.day.ago, 
 	                    start_date: 1.days.from_now.to_date ,
 	                    end_date: 3.days.from_now.to_date,manager: cris)	        	
         		expect(library.valid?).to eq(false)

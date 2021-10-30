@@ -9,17 +9,16 @@ class Project < ApplicationRecord
     validates :hourly_rate, numericality: { greater_than: 10 }, presence: :true 
 
     validate :start_date_greater_than_end_date
-    validate :start_date_greater_than_end_date
     validate :start_date_lesser_expiration_date
+    validate :start_date_equal_date_now, on: :create
     validate :expiration_date_equal_start_date
     validate :expiration_date_lesser_than_now, on: :create
-    validate :start_date_equal_date_now, on: :create
 
 
     private
 
     def start_date_equal_date_now
-        if start_date.present? && start_date == Date.today 
+        if start_date.present? && start_date.today? 
             errors.add(:start_date, 'deve ser maior que data de hoje')
         end 
         
@@ -39,7 +38,7 @@ class Project < ApplicationRecord
     end
 
     def expiration_date_lesser_than_now
-        if expiration_date.present? && expiration_date < Date.today 
+        if expiration_date.present? && expiration_date <= Date.today 
             errors.add(:expiration_date, 'deve ser maior que data atual')
         end
     end
