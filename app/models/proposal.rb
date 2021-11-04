@@ -9,6 +9,7 @@ class Proposal < ApplicationRecord
   validates :hourly_rate, numericality: { greater_than: 10 }
 
   validates :justification, presence: true, on: :update
-  
+
+  validates_uniqueness_of :developer_id, scope: [:developer_id, :project_id ]  
 
 end

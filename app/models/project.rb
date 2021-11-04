@@ -1,6 +1,7 @@
 class Project < ApplicationRecord 
     belongs_to :manager
     has_many :proposals
+    has_many :developers, through: :proposals
 
     enum situation: {openned: 3, development: 6, production: 9}
 
