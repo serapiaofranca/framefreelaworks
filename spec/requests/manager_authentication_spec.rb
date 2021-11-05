@@ -7,7 +7,7 @@ describe 'User Manager authentication' do
     expect(response).to redirect_to(new_manager_session_path)
   end
 
-  it 'cannot open new project form unless authenticated' do    
+  it 'cannot open new project form unless authenticated' do
     get new_project_path
 
     expect(response).to redirect_to(new_manager_session_path)
@@ -15,8 +15,7 @@ describe 'User Manager authentication' do
 
   it 'cannot show project without login' do
     get '/projects/1'
-  
+
     expect(response).to redirect_to(root_path)
   end
-
 end

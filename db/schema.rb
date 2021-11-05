@@ -10,108 +10,108 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_23_203223) do
-
-  create_table "active_storage_attachments", force: :cascade do |t|
-    t.string "name", null: false
-    t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
-    t.datetime "created_at", null: false
-    t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
-    t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
+ActiveRecord::Schema.define(version: 20_211_023_203_223) do
+  create_table 'active_storage_attachments', force: :cascade do |t|
+    t.string 'name', null: false
+    t.string 'record_type', null: false
+    t.integer 'record_id', null: false
+    t.integer 'blob_id', null: false
+    t.datetime 'created_at', null: false
+    t.index ['blob_id'], name: 'index_active_storage_attachments_on_blob_id'
+    t.index %w[record_type record_id name blob_id], name: 'index_active_storage_attachments_uniqueness',
+                                                    unique: true
   end
 
-  create_table "active_storage_blobs", force: :cascade do |t|
-    t.string "key", null: false
-    t.string "filename", null: false
-    t.string "content_type"
-    t.text "metadata"
-    t.string "service_name", null: false
-    t.bigint "byte_size", null: false
-    t.string "checksum", null: false
-    t.datetime "created_at", null: false
-    t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  create_table 'active_storage_blobs', force: :cascade do |t|
+    t.string 'key', null: false
+    t.string 'filename', null: false
+    t.string 'content_type'
+    t.text 'metadata'
+    t.string 'service_name', null: false
+    t.bigint 'byte_size', null: false
+    t.string 'checksum', null: false
+    t.datetime 'created_at', null: false
+    t.index ['key'], name: 'index_active_storage_blobs_on_key', unique: true
   end
 
-  create_table "active_storage_variant_records", force: :cascade do |t|
-    t.integer "blob_id", null: false
-    t.string "variation_digest", null: false
-    t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
+  create_table 'active_storage_variant_records', force: :cascade do |t|
+    t.integer 'blob_id', null: false
+    t.string 'variation_digest', null: false
+    t.index %w[blob_id variation_digest], name: 'index_active_storage_variant_records_uniqueness', unique: true
   end
 
-  create_table "developers", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_developers_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_developers_on_reset_password_token", unique: true
+  create_table 'developers', force: :cascade do |t|
+    t.string 'email', default: '', null: false
+    t.string 'encrypted_password', default: '', null: false
+    t.string 'reset_password_token'
+    t.datetime 'reset_password_sent_at'
+    t.datetime 'remember_created_at'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['email'], name: 'index_developers_on_email', unique: true
+    t.index ['reset_password_token'], name: 'index_developers_on_reset_password_token', unique: true
   end
 
-  create_table "managers", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_managers_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_managers_on_reset_password_token", unique: true
+  create_table 'managers', force: :cascade do |t|
+    t.string 'email', default: '', null: false
+    t.string 'encrypted_password', default: '', null: false
+    t.string 'reset_password_token'
+    t.datetime 'reset_password_sent_at'
+    t.datetime 'remember_created_at'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['email'], name: 'index_managers_on_email', unique: true
+    t.index ['reset_password_token'], name: 'index_managers_on_reset_password_token', unique: true
   end
 
-  create_table "profiles", force: :cascade do |t|
-    t.string "full_name"
-    t.string "social_name"
-    t.date "birth_date"
-    t.string "education"
-    t.string "skills"
-    t.text "employment_history"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "developer_id", null: false
-    t.index ["developer_id"], name: "index_profiles_on_developer_id"
+  create_table 'profiles', force: :cascade do |t|
+    t.string 'full_name'
+    t.string 'social_name'
+    t.date 'birth_date'
+    t.string 'education'
+    t.string 'skills'
+    t.text 'employment_history'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.integer 'developer_id', null: false
+    t.index ['developer_id'], name: 'index_profiles_on_developer_id'
   end
 
-  create_table "projects", force: :cascade do |t|
-    t.string "title"
-    t.text "description"
-    t.string "requirements"
-    t.decimal "hourly_rate"
-    t.date "expiration_date"
-    t.boolean "require_presential_meetings"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "manager_id", null: false
-    t.date "start_date"
-    t.date "end_date"
-    t.integer "situation", default: 3
-    t.index ["manager_id"], name: "index_projects_on_manager_id"
+  create_table 'projects', force: :cascade do |t|
+    t.string 'title'
+    t.text 'description'
+    t.string 'requirements'
+    t.decimal 'hourly_rate'
+    t.date 'expiration_date'
+    t.boolean 'require_presential_meetings'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.integer 'manager_id', null: false
+    t.date 'start_date'
+    t.date 'end_date'
+    t.integer 'situation', default: 3
+    t.index ['manager_id'], name: 'index_projects_on_manager_id'
   end
 
-  create_table "proposals", force: :cascade do |t|
-    t.text "motivation"
-    t.decimal "hourly_rate"
-    t.integer "weekly_available_hours"
-    t.date "expected_completion"
-    t.integer "project_id", null: false
-    t.integer "developer_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.integer "status", default: 5
-    t.text "justification", default: "none"
-    t.index ["developer_id"], name: "index_proposals_on_developer_id"
-    t.index ["project_id"], name: "index_proposals_on_project_id"
+  create_table 'proposals', force: :cascade do |t|
+    t.text 'motivation'
+    t.decimal 'hourly_rate'
+    t.integer 'weekly_available_hours'
+    t.date 'expected_completion'
+    t.integer 'project_id', null: false
+    t.integer 'developer_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.integer 'status', default: 5
+    t.text 'justification', default: 'none'
+    t.index ['developer_id'], name: 'index_proposals_on_developer_id'
+    t.index ['project_id'], name: 'index_proposals_on_project_id'
   end
 
-  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "profiles", "developers"
-  add_foreign_key "projects", "managers"
-  add_foreign_key "proposals", "developers"
-  add_foreign_key "proposals", "projects"
+  add_foreign_key 'active_storage_attachments', 'active_storage_blobs', column: 'blob_id'
+  add_foreign_key 'active_storage_variant_records', 'active_storage_blobs', column: 'blob_id'
+  add_foreign_key 'profiles', 'developers'
+  add_foreign_key 'projects', 'managers'
+  add_foreign_key 'proposals', 'developers'
+  add_foreign_key 'proposals', 'projects'
 end
