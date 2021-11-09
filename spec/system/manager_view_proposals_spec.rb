@@ -41,11 +41,7 @@ describe 'Manager view proposals' do
                                     requirements: 'Ruby, Raisl,Html, CSS, Javascript',
                                     hourly_rate: 100, expiration_date: '10/05/2022',
                                     start_date: '15/05/2022', end_date: '10/07/2022', manager: julia)
-    vagas = Project.create!(title: 'Estacionamento virtual', description: 'Locação virtual de vagas de estacionamento',
-                            requirements: 'Php, Lavavel,Html, CSS, Javascript',
-                            hourly_rate: 80, expiration_date: '10/04/2022',
-                            start_date: '14/04/2022', end_date: '14/06/2022', manager: julia)
-
+    
     john = Manager.create!(email: 'john@manager.com', password: '123456')
     ingressos = Project.create!(title: 'Ingressos.com', description: 'Site para venda de entradas de eventos',
                                 requirements: 'C#, dotNet ,SqlServer, Html, CSS, Javascript',
