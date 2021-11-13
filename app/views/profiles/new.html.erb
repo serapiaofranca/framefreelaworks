@@ -1,10 +1,12 @@
 
 <% if @profile.errors.any? %>
-  <ul>
-    <% @profile.errors.full_messages.each do |error| %>
-      <li><%= error %></li>
-    <% end %>
-  </ul>
+  <div class="alert alert-danger">
+    <ul>
+      <% @profile.errors.full_messages.each do |error| %>
+        <li><%= error %></li>
+      <% end %>
+    </ul>
+  </div>
 <% end %>
 
 <%= form_with(model: @profile) do |f| %>
@@ -32,10 +34,10 @@
     <%= f.label :employment_history %>
     <%= f.text_area :employment_history %>
   </div>
-  <div>    
-    <%= f.label :avatar %>
+  <div class="form-group">
+    <%= f.label :avatar, class: 'form-label' %>
     <%= f.file_field :avatar %>
-  </div> 
+  </div>    
   <br> 
   <%= f.submit 'Enviar' %>  
 <% end %>

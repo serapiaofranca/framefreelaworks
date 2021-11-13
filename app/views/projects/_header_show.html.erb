@@ -1,5 +1,7 @@
 <header>
-	<% if @project && @project.openned? %>
-		<%= link_to 'Encerrar envio de propostas', development_project_path(@project.id), method: :post %>
-	<% end %>
+	<div class="nav-item">
+		<% if @project && @project.openned? %>
+			<%= link_to 'Encerrar envio de propostas', development_project_path(@project.id), method: :post , style:"color:#fff" %>
+		<% end %>
+	</div>
 </header>
