@@ -6,11 +6,15 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body style="height:100%;">
     <%= render 'layouts/header' %>
     <% if alert %>
       <div class="alert alert-danger"><%= alert %></div>          
@@ -18,14 +22,15 @@
     <% if notice %>
       <div class="alert alert-primary"><%= notice %></div>          
     <% end %>
-    <div style="height: 150%!important;background-image: url('<%= image_path('login_bg2.jpeg') %>'); background-size: cover">              
-        <div class="p-2 p-sm-2">
-          <div class="d-flex justify-content-center align-items-center pb-2 mb-2">
-            <%= image_tag('logo', style: 'height: 90px;') %>
-          </div>
-          <%= yield %>                           
-        </div>        
-      </div> 
+    <div style="background-image: url('<%= image_path('login_bg2.jpeg') %>'); background-size: cover;">              
+      <div class="p-4 p-sm-4">
+        <div class="d-flex justify-content-center align-items-center pb-4 mb-4">
+          <%= image_tag('logo', style: 'height: 80px;') %>         
+        </div>
+        <div class="container mt-5">
+          <%= yield %> 
+        </div>                                 
+      </div>             
     </div>
   </body>
 </html>

@@ -1,16 +1,16 @@
- <div class="p-4 align-items-center" >   
-    <h2>Boas vindas ao <strong>FrameFreelaWorks</strong></h2>
-    <br>
-    <h3 style="color:#FFF">Gestores, encontrem Devs para realizar seu Projeto </h3>
-    <br>
-    <h3 style="color:#FFF">Devs, envie proposta para participar de Times e fazer parte da realização de projetos </h3>
+<div class="p-2 p-sm-2 align-items-center" >   
+  <h2 style="text-align: center;">Boas vindas ao <strong>FrameFreelaWorks</strong></h2>
+  <br>
+  <h3 style="text-align: center;color:#01D">Gestores, encontrem Devs para realizar seu Projeto </h3>
+  <br>
+  <h3 style="text-align: center;color:#01D">
+    Devs, envie proposta para participar de Times e da realização de projetos
+  </h3>
+</div>
+<div>
+  <% if current_developer && current_developer.profile %>
+    <%= render 'developer_index' %>        
+  <% end %>
 </div>
 
-<section>
-    <div>
-        <% if current_developer && current_developer.profile %>
-            <%= render 'developer_index' %>        
-        <% end %>
-    </div>
-</section>
   

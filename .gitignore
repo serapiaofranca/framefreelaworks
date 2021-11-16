@@ -38,3 +38,6 @@ yarn-debug.log*
 
 # ignore logs gem simplecov
 /coverage/*
+
+#
+.rubocop.yml

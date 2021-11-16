@@ -1,14 +1,14 @@
 <div>	
-    <% if @proposal.errors.any? %>
-    	<h3>erros da página</h3>
-      	<ul>
-	      	<% @proposal.errors.full_messages.each do |error| %>
-	      	  <li><%= error %></li>
-	      	<% end %>
-      	</ul>
-    <% end %>
+	<%= link_to 'Voltar', root_path, style:"color:#fff;" %>
+	<% if @proposal.errors.any? %>
+		<h3>erros da página</h3>
+			<ul>
+				<% @proposal.errors.full_messages.each do |error| %>
+					<li><%= error %></li>
+				<% end %>
+			</ul>
+	<% end %>
 </div>
-
 
 <% if current_developer %>
 	<%= render 'developer_card_proposal' %>
@@ -17,4 +17,3 @@
 <% end %>
 
 
-<%= link_to 'Voltar', root_path %>

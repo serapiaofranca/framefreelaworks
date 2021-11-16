@@ -1,8 +1,8 @@
 <% @projects.each do |p| %>
-    <div class="column" >
+    <div class="column", style="background-color: #6AF;">
         <div class="card">
             <div class="form-group">
-                <h2>Título: <span class="badge badge-secondary"><%=  link_to( p.title , project_path(p.id) )%></span></h2>
+                <h2>Título: <strong class="card button"><%=  link_to( p.title , project_path(p.id) )%></strong></h2>
                 <p> Descrição do projeto: <%=  p.description %> </p>    
                 <p> Tecnologias requeridas: <%=  p.requirements %> </p>    
                 <p> Remuneração por hora: <%=  number_to_currency(p.hourly_rate) %> </p> 

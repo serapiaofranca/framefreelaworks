@@ -12,8 +12,7 @@
         <p>Previsão de conclusão: 
             <strong><%= I18n.l(@proposal.expected_completion) %></strong></p>
         <p>Status: <strong><%= I18n.t(@proposal.status) %></strong></p>
-        <br>
-        
+        <br>        
     </div> 
         <% if @proposal.accepted?  && Date.today < @proposal.updated_at.to_date + 4.days  %>
             <p>Você tem até 
